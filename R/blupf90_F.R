@@ -1,1 +1,1 @@
-blupf90_F<-function(){}
+blupf90_F<-function(){"testando"}
