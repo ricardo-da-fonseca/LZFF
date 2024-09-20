@@ -4,12 +4,12 @@
 \alias{blupf90_F}
 \title{Função para formatação do arquivo de dados fenotípicos no software BLUPF90}
 \usage{
-blupf90_F(y1 = NULL, y2 = NULL)
+blupf90_F(local, tipo = "csv")
 }
 \arguments{
-\item{y1}{caminho do arquivo de dados a ser formatado pela função}
+\item{local}{caminho do arquivo}
 
-\item{y2}{data frame com os dados a serem formatados pela função}
+\item{tipo}{tipo do arquivo (extensão)}
 }
 \value{
 um arquivo de dados no formato adequado para rodar o software
