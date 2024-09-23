@@ -2,22 +2,24 @@
 % Please edit documentation in R/blupf90_F.R
 \name{blupf90_F}
 \alias{blupf90_F}
-\title{Função para formatação do arquivo de dados fenotípicos no software BLUPF90}
+\title{Function for phenotypic data file formatting to BLUPF90 software}
 \usage{
-blupf90_F(local, tipo = "csv")
+blupf90_F(local, h = TRUE, s = " ", d = ",", md = "")
 }
 \arguments{
-\item{local}{caminho do arquivo}
+\item{local}{path of the data file}
 
-\item{tipo}{tipo do arquivo (extensão)}
+\item{h}{logical value indicating the presence of header}
+
+\item{s}{field separator used in data file}
+
+\item{d}{character used as decimal separator}
+
+\item{md}{value used to indicate missing values in data file}
 }
 \value{
-um arquivo de dados no formato adequado para rodar o software
+a data file in the appropriate format to run the software
 }
 \description{
-Função para formatação do arquivo de dados fenotípicos no software BLUPF90
-}
-\examples{
-y<-data.frame(id=1:5,dados=rnorm(5,10,3))
-blupf90_F(y)
+Function for phenotypic data file formatting to BLUPF90 software
 }
