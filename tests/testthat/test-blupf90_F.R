@@ -1,3 +1,3 @@
-test_that("blupf90_F funciona", {
-  expect_equal(2 * 2, 4) #pensar no teste. Subdividir o problema
+test_that("extrair extensão", {
+  expect_equal(stringr::str_extract("testeNome.xlsx","(\\w+)$"), "xlsx")
 })
