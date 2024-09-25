@@ -4,7 +4,15 @@
 \alias{blupf90_F}
 \title{Function for phenotypic data file formatting to BLUPF90 software}
 \usage{
-blupf90_F(local, h = TRUE, s = " ", d = ",", md = "")
+blupf90_F(
+  local,
+  h = TRUE,
+  s = " ",
+  d = ",",
+  md = "",
+  of = "blupF90_data",
+  omd = 0
+)
 }
 \arguments{
 \item{local}{path of the data file}
@@ -16,6 +24,10 @@ blupf90_F(local, h = TRUE, s = " ", d = ",", md = "")
 \item{d}{character used as decimal separator}
 
 \item{md}{value used to indicate missing values in data file}
+
+\item{of}{name of the output file}
+
+\item{omd}{missing data value to be written in the output file}
 }
 \value{
 a data file in the appropriate format to run the software
