@@ -13,16 +13,15 @@
 #'
 
 blupf90_F<-function(local,h=TRUE,s=" ",d=",",md="",of="blupF90_data",omd=0){
-  ok_of<-if(stringr::str_extract(of,"#")){
+  ok_of<-if(stringr::str_detect(of,"#")){
     stop("File name cannot contain a #. Choose a name without a #")
   }
   tipo<-stringr::str_extract(local,"(\\w+)$")
-  print(tipo)
   if(tipo=="csv"){
     dados<-utils::read.csv(local,header=h,sep=s,dec=d,na.strings = md)
   } else{
     if(tipo=="xls" || tipo=="xlsx"){
-      dados<-readxl::read_excel(local,na = md)
+      dados<-as.data.frame(readxl::read_excel(local,na = md))
     } else{
       if(tipo=="txt"){
         dados<-utils::read.table(local,header=h,sep=s,dec=d,na.strings = md)
@@ -36,10 +35,9 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md="",of="blupF90_data",omd=0){
   mapList<-list()
   for(i in 1:length(isnum)){
     if(!isnum[i]){
-      print("The data file has non-numerical values, which must be recoded.\n
-            I will do a simple recode for you but the renumF90 program should be used anyway.")
-      maplist<-append(maplist,simpleRecode(dados[i]))
-      dados[i]<-maplist[[i]]$Recodes
+      print("The data file has non-numerical values, which must be recoded. I will do a simple recode for you but the renumF90 program should be used anyway.")
+      mapList<-append(mapList,list(simpleRecode(dados[,i])))
+      dados[,i]<-mapList[[i]]$Recodes
     }
   }
   #Replacing NAs
