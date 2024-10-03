@@ -52,5 +52,5 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),of="blupF90_data"
     }
   }
   # Writing the formated data file
-  utils::write.table(dados,of,quote=FALSE,sep=" ")
+  utils::write.table(dados,of,quote=FALSE,sep=" ",row.names=FALSE)
 }
