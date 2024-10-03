@@ -21,7 +21,7 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),of="blupF90_data"
     dados<-utils::read.csv(local,header=h,sep=s,dec=d,strip.white=FALSE,na.strings = md)
   } else{
     if(tipo=="xls" || tipo=="xlsx"){
-      dados<-as.data.frame(readxl::read_excel(local,na = md))
+      dados<-as.data.frame(readxl::read_excel(local,na = md),col_names=h)
     } else{
       if(tipo=="txt"){
         dados<-utils::read.table(local,header=h,sep=s,dec=d,strip.white=FALSE,na.strings = md)
@@ -52,5 +52,5 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),of="blupF90_data"
     }
   }
   # Writing the formated data file
-  utils::write.table(dados,of,quote=FALSE,sep=" ",row.names=FALSE)
+  utils::write.table(dados,of,quote=FALSE,sep=" ",row.names=FALSE,col.names=FALSE)
 }
