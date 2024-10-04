@@ -18,6 +18,7 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),
     stop("File name cannot contain a #. Choose a name without a #")
   }
   tipo<-stringr::str_extract(local,"(\\w+)$")
+  print(tipo)
   if(tipo=="csv"){
     dados<-utils::read.csv(local,header=h,sep=s,dec=d,strip.white=FALSE,
                            na.strings = md)
@@ -25,7 +26,7 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),
     if(tipo=="xls" || tipo=="xlsx"){
       dados<-as.data.frame(readxl::read_excel(local,na = md),col_names=h)
     } else{
-      if(tipo=="txt"){
+      if(tipo=="txt"|tipo==basename(local)){
         dados<-utils::read.table(local,header=h,sep=s,dec=d,
                                  strip.white=FALSE,na.strings = md)
       } else{
