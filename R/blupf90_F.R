@@ -12,21 +12,24 @@
 #' @export
 #'
 
-blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),of="blupF90_data",omd=0){
+blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),
+                    of="blupF90_data",omd=0){
   ok_of<-if(stringr::str_detect(of,"#")){
     stop("File name cannot contain a #. Choose a name without a #")
   }
   tipo<-stringr::str_extract(local,"(\\w+)$")
   if(tipo=="csv"){
-    dados<-utils::read.csv(local,header=h,sep=s,dec=d,strip.white=FALSE,na.strings = md)
+    dados<-utils::read.csv(local,header=h,sep=s,dec=d,strip.white=FALSE,
+                           na.strings = md)
   } else{
     if(tipo=="xls" || tipo=="xlsx"){
       dados<-as.data.frame(readxl::read_excel(local,na = md),col_names=h)
     } else{
       if(tipo=="txt"){
-        dados<-utils::read.table(local,header=h,sep=s,dec=d,strip.white=FALSE,na.strings = md)
+        dados<-utils::read.table(local,header=h,sep=s,dec=d,
+                                 strip.white=FALSE,na.strings = md)
       } else{
-        stop("Extension unknown or absent. Please, provide a file name with an supported extension (csv, xls, xlsx or txt.")
+        stop("I did not detect the type of the file. Please, provide a file name with an supported type (csv, xls, xlsx or txt.")
       }
     }
   }
@@ -52,5 +55,6 @@ blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),of="blupF90_data"
     }
   }
   # Writing the formated data file
-  utils::write.table(dados,of,quote=FALSE,sep=" ",row.names=FALSE,col.names=FALSE)
+  utils::write.table(dados,of,quote=FALSE,sep=" ",row.names=FALSE,
+                     col.names=FALSE,eol="\n")
 }
