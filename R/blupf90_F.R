@@ -12,13 +12,12 @@
 #' @export
 #'
 
-blupf90_F<-function(local,h=TRUE,s=" ",d=",",md=c(""," ","NA"),
-                    of="blupF90_data",omd=0){
+blupf90_F<-function(local,s,d,h=TRUE,md=c(""," ","NA"),
+                    of="blupF90_data",omd=0,eol="\n"){
   ok_of<-if(stringr::str_detect(of,"#")){
     stop("File name cannot contain a #. Choose a name without a #")
   }
   tipo<-stringr::str_extract(local,"(\\w+)$")
-  print(tipo)
   if(tipo=="csv"){
     dados<-utils::read.csv(local,header=h,sep=s,dec=d,strip.white=FALSE,
                            na.strings = md)
