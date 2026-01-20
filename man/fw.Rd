@@ -98,5 +98,7 @@ pedigree
 #Creating the data file and pedigree file to be processed by the Wombat software
 fw(dObj = data, pObj = pedigree, cTraits = 6:7, cDates = 5, cPedDat.isd = 1:3,
 dof = "formatted_data.txt", pof = "ped.txt")
+unlink("formatted_data.txt")
+unlink("ped.txt")
 
 }
