@@ -10,7 +10,7 @@ test_that("formatB is working correctly", {
 
   formatB(udata = simudata, of = temp_file, EoL = "\n")
 
-  # Reading the Format A output
+  # Reading the formatB output
   dataRead <- readLines(temp_file)
 
   # checking if the file exists
