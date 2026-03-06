@@ -52,7 +52,7 @@ fw<-function(dObj = NULL, pObj = NULL, cTraits = NULL, cPedDat.isd = NULL,
              cDates = NULL, pdg.isd = c(1, 2, 3), dataFile = NULL,
              pedFile = NULL, sDat = " ", dDat = ".", hDat = FALSE,
              sPdg = " ", hPdg = FALSE, missingData = c(""," ","NA"),
-             dof = "formatB_data", omdat = "-99999", width = NULL,
+             dof = "formatW_data", omdat = "-99999", width = NULL,
              endOfLine = "\n", pof = "pedigree.txt", mparents = 0,
              sep = " ", printMap = FALSE, mof = "map.txt"){
 
@@ -62,7 +62,7 @@ fw<-function(dObj = NULL, pObj = NULL, cTraits = NULL, cPedDat.isd = NULL,
                           dData = dDat, hData = hDat, sPed = sPdg, hPed = hPdg,
                           md = missingData)
 
-  formatB(dataList = listDataPed, of = dof, omd = omdat, traits = cTraits,
+  formatW(dataList = listDataPed, of = dof, omd = omdat, traits = cTraits,
           widths = width, EoL = endOfLine)
 
   formatPed(dataList = listDataPed, of = pof, mp = mparents, s = sep, EoL = endOfLine,

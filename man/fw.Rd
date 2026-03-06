@@ -19,7 +19,7 @@ fw(
   sPdg = " ",
   hPdg = FALSE,
   missingData = c("", " ", "NA"),
-  dof = "formatB_data",
+  dof = "formatW_data",
   omdat = "-99999",
   width = NULL,
   endOfLine = "\\n",
