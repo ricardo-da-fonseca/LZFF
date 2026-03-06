@@ -25,12 +25,12 @@
 #' #creating the data and pedigree list
 #' plist<-list(map=m,ped=p,data=d)
 #'
-#' #formatB data
-#' formatB(dataList = plist , of = "formatB_data", omd = "-99999", traits = c(6,7),widths = NULL, EoL = "\n")
+#' #formatW data
+#' formatW(dataList = plist , of = "formatW_data", omd = "-99999", traits = c(6,7),widths = NULL, EoL = "\n")
 #'
-#' unlink("formatB_data")
+#' unlink("formatW_data")
 #'
-formatB<-function(dataList, of = "formatB_data", omd = "-99999", traits = NULL,
+formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
                   widths = NULL, EoL = "\n"){
 
   udata<-dataList$data
