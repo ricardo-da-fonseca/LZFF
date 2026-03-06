@@ -19,8 +19,8 @@
 #' #creating the data and pedigree list
 #' plist<-list(map=m,ped=p,data=d)
 #'
-#' #formatA data
-#' formatA(dataList= plist, omd = "0", of = "formatted_file", EoL = "\n")
+#' #formatB data
+#' formatB(dataList= plist, omd = "0", of = "formatted_file", EoL = "\n")
 #'
 #' unlink("formatted_file")
 #'
@@ -28,7 +28,7 @@
 #' @export
 
 
-formatA<-function(dataList, omd = "0", of = "formatted_file", EoL = "\n"){
+formatB<-function(dataList, omd = "0", of = "formatted_file", EoL = "\n"){
   if(stringr::str_detect(of,"#")){
     stop("File name cannot contain a #. Choose a name without a #")
   }

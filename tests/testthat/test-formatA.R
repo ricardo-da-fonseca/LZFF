@@ -1,4 +1,4 @@
-test_that("formatA is working correctly", {
+test_that("formatB is working correctly", {
   # Simulating rrcData output
   simudata<-data.frame(
     id = 1:3,
@@ -8,7 +8,7 @@ test_that("formatA is working correctly", {
 
   temp_file<-tempfile(fileext = ".txt")
 
-  formatA(udata = simudata, of = temp_file, EoL = "\n")
+  formatB(udata = simudata, of = temp_file, EoL = "\n")
 
   # Reading the Format A output
   dataRead <- readLines(temp_file)
@@ -26,13 +26,13 @@ test_that("formatA is working correctly", {
   unlink(temp_file)
 })
 
-test_that("formatA throw an error when file's name contains a #", {
+test_that("formatB throw an error when file's name contains a #", {
   # Creating data
   simudata <- data.frame(id = 1:2, trait = c(10, 20))
 
   # Attempting to use a file's name with a #
   expect_error(
-    formatA(udata = simudata, of = "filewitha#.txt"),
+    formatB(udata = simudata, of = "filewitha#.txt"),
     "File name cannot contain a #. Choose a name without a #"
   )
 })
