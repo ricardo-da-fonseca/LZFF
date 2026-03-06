@@ -40,3 +40,14 @@ in data recoded.
 \description{
 This is a simple function for reading, recoding, and performing some checks on a data file. This function does not recode pedigree data.
 }
+\examples{
+#Creating pedigree data
+x<- data.frame(id   = c("id2", "s3", "id4", "id5", "id6"),sire = c("s3",      NA,      "s4", "s5", "s6"),dam  = c(NA,      NA,      "d1",  "d2",  "d3"))
+
+#Creating data
+y<-data.frame(id = paste0("i", 1:5), sire = paste0("s", c(rep(1, 2), rep(2, 2), 3)),dam = paste0("d", 1:5), cg = gl(n = 2, k = 2, length = 5, labels = c("gc1", "gc2")),bwd = as.Date(c("2014-10-02", "2014-02-15", "2017-06-30", "2017-06-14", "2016-07-01"), format = "\%Y-\%m-\%d"),trt1 = rnorm(5, 2, 2), trt2 = rnorm(5, 10, 3))
+
+#Testing and recoding pedigree data
+rrcPed(pedigreeObj = x, isd = c(1, 2, 3),udata = y, colsPdgDat.isd = c(1, 2, 3),local = NULL, s = " ", h = FALSE, missData = c(""," ","NA"))
+
+}

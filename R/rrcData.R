@@ -51,6 +51,8 @@
 #' rcData
 #'
 #' @export
+#'
+#'
 
 rrcData<-function(datObj = NULL, colsPdg = NULL, colsTrts = NULL, colsDts = NULL,
                   local = NULL, s = " ", d = ".", h = FALSE, missData = c(""," ","NA")){
