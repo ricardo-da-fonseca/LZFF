@@ -33,9 +33,6 @@ a formatted data file.
 It creates a formatted data file based on the software Wombat's requirements for genetic evaluations.
 }
 \examples{
-<<<<<<< HEAD
-# example code
-=======
 #creating a data
 d<-data.frame(id = paste0("i", 1:5), sire = paste0("s", c(rep(1, 2), rep(2, 2), 3)),dam = paste0("d", 1:5), cg = gl(n = 2, k = 2, length = 5, labels = c("gc1", "gc2")),bwd = as.Date(c("2014-10-02", "2014-02-15", "2017-06-30", "2017-06-14", "2016-07-01"), format = "\%Y-\%m-\%d"),trt1 = rnorm(5, 2, 2), trt2 = rnorm(5, 10, 3))
 p<- data.frame(id = paste0("i", 1:5), sire = paste0("s", c(rep(1, 2), rep(2, 2), 3)),dam = paste0("d", 1:5))
@@ -49,6 +46,5 @@ plist<-list(map=m,ped=p,data=d)
 formatB(dataList = plist , of = "formatB_data", omd = "-99999", traits = c(6,7),widths = NULL, EoL = "\n")
 
 unlink("formatB_data")
->>>>>>> 4aaea3786409d06715d204c2ba9cd1e8eba585aa
 
 }
