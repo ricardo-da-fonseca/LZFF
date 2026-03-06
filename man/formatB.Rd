@@ -32,3 +32,7 @@ a formatted data file.
 \description{
 It creates a formatted data file based on the software Wombat's requirements for genetic evaluations.
 }
+\examples{
+# example code
+
+}
