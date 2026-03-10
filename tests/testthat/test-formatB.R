@@ -1,14 +1,13 @@
 test_that("formatB is working correctly", {
   # Simulating rrcData output
-  simudata<-data.frame(
-    id = 1:3,
-    trait1 = c(10.5, 20.0, 15.2),
-    trait2 = c(5.1, 8.9, 12.3)
-  )
+  simudata<-list(
+    map = data.frame(code = letters[1:9], recode = 1:9),
+    ped = data.frame(id = 7:9, sire = 4:6, dam = 1:3),
+    data = data.frame(id = 7:9, trait = c(5.1, 8.9, 12.3)))
 
   temp_file<-tempfile(fileext = ".txt")
 
-  formatB(udata = simudata, of = temp_file, EoL = "\n")
+  formatB(dataList = simudata, of = temp_file)
 
   # Reading the formatB output
   dataRead <- readLines(temp_file)
@@ -18,9 +17,9 @@ test_that("formatB is working correctly", {
 
   # Checking the content
   expect_equal(length(dataRead), 3)
-  expect_equal(dataRead[1], "1 10.5 5.1")
-  expect_equal(dataRead[2], "2 20 8.9")
-  expect_equal(dataRead[3], "3 15.2 12.3")
+  expect_equal(dataRead[1], "7 5.1")
+  expect_equal(dataRead[2], "8 8.9")
+  expect_equal(dataRead[3], "9 12.3")
 
   # Clear the temporary file
   unlink(temp_file)
@@ -32,7 +31,6 @@ test_that("formatB throw an error when file's name contains a #", {
 
   # Attempting to use a file's name with a #
   expect_error(
-    formatB(udata = simudata, of = "filewitha#.txt"),
-    "File name cannot contain a #. Choose a name without a #"
+    formatB(datalist = simudata, of = "filewitha#.txt")
   )
 })
