@@ -43,6 +43,10 @@ formatB<-function(dataList, omd = "0", of = "formatted_file", EoL = "\n"){
     stop("File name cannot contain a #. Choose a name without a #")
   }
 
+  if(stringr::str_detect(of,"#")){
+    stop("File name cannot contain a #. Choose a name without a #")
+  }
+
   udata<-dataList$data
 
 
