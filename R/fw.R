@@ -5,7 +5,7 @@
 #'
 #' @param dObj data frame with data after a consistency analysis
 #' @param pObj object with pedigree data
-#' @param cTraits identification of columns related to traits. Repeated traits must be listed first
+#' @param cTraits identification of columns related to traits.
 #' @param cPedDat.isd identification of columns with pedigree information in the unformatted data object in the order individual, sire, dam
 #' @param cDates columns with dates
 #' @param pdg.isd vector of columns number for individual, sire and dam in pedigree object/file
