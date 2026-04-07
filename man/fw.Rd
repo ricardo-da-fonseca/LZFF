@@ -20,6 +20,7 @@ fw(
   hPdg = FALSE,
   missingData = c("", " ", "NA"),
   dof = "formatW_data",
+  rept = NULL,
   omdat = "-99999",
   width = NULL,
   endOfLine = "\\n",
@@ -60,6 +61,8 @@ fw(
 \item{missingData}{missing data indicator}
 
 \item{dof}{data output file's name}
+
+\item{rept}{a list where each element is a vector containing the columns of the repeated measurements for each trait}
 
 \item{omdat}{missing data value to be written in the output file}
 
