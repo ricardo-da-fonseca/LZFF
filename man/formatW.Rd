@@ -9,20 +9,23 @@ formatW(
   of = "formatW_data",
   omd = "-99999",
   traits = NULL,
+  rep = NULL,
   widths = NULL,
   EoL = "\\n"
 )
 }
 \arguments{
-\item{dataList}{list containing recoded pedigree and data.}
+\item{dataList}{list containing recoded pedigree and data}
 
-\item{of}{output file name.}
+\item{of}{output file name}
 
-\item{omd}{missing data value to be written in the output file.}
+\item{omd}{missing data value to be written in the output file}
 
-\item{traits}{vector indicating traits columns.}
+\item{traits}{vector indicating traits columns}
 
-\item{widths}{vector specifying the widths of columns in the formatted file.}
+\item{rep}{a list where each element is a vector containing the columns of the repeated measurements for each trait}
+
+\item{widths}{vector specifying the widths of columns in the formatted file}
 
 \item{EoL}{end of line indicator. Unix and Linux uses "\\n", while Windows uses "\\r\\n".}
 }

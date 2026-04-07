@@ -20,7 +20,7 @@ rrcPed(
 
 \item{isd}{vector of columns number for individual, sire and dam}
 
-\item{udata}{unformatted data object}
+\item{udata}{unformatted data object (return value from rrcData)}
 
 \item{colsPdgDat.isd}{identification of columns with pedigree information in the unformatted data object in the order individual, sire, dam}
 

@@ -35,7 +35,7 @@ fw(
 
 \item{pObj}{object with pedigree data}
 
-\item{cTraits}{identification of columns related to traits}
+\item{cTraits}{identification of columns related to traits.}
 
 \item{cPedDat.isd}{identification of columns with pedigree information in the unformatted data object in the order individual, sire, dam}
 
