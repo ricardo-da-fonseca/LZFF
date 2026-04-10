@@ -55,12 +55,10 @@ formatPed<-function(dataList, of = "pedigree.txt", mp = 0, s = " ", EoL = "\n",
   stopifnot(all(grepl("^[ -~]+$", dadosPedTemp)))
 
   if(map){
-    utils::write.table(dataList$ped, of, sep = s, eol = EoL,
-                       row.names = FALSE, col.names = FALSE, quote = FALSE)
     utils::write.table(dataList$map, mapof, sep = s, eol =EoL,
                        row.names = FALSE, col.names = TRUE, quote = FALSE)
-  }else{
-    utils::write.table(dataList$ped, of, sep = s, eol = EoL,
-                       row.names = FALSE, col.names = FALSE, quote = FALSE)
   }
+
+  utils::write.table(dataList$ped, of, sep = s, eol = EoL,
+                     row.names = FALSE, col.names = FALSE, quote = FALSE)
 }
