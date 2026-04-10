@@ -69,5 +69,5 @@ fw<-function(dObj = NULL, pObj = NULL, cTraits = NULL, cPedDat.isd = NULL,
   formatPed(dataList = listDataPed, of = pof, mp = mparents, s = sep, EoL = endOfLine,
             map = printMap, mapof = mof)
 
-  listDataPed
+  invisible(listDataPed)
 }
