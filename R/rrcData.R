@@ -103,7 +103,6 @@ rrcData<-function(datObj = NULL, colsPdg = NULL, colsTrts = NULL, colsDts = NULL
     )
   }else{
     dados<-as.data.frame(datObj)
-    print(dados)
   }
 
   ##########
