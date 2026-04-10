@@ -120,8 +120,8 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
   parents<-rbind(founders, parents)
   rm(founders)
   parents<-unique(parents, fromLast = TRUE)
+  parents$ind[parents$ind == 'NA']<-NA
   parents<-parents[!is.na(parents$ind), ]
-  #
 
   #Setting the youngest individuals
   i<-with(pedData,
@@ -130,18 +130,14 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
     young<-pedData[i, ]
     orderped<-rbind(parents, young)
     orderped<-unique(orderped)
-    print(orderped)
   }else{
     j<-!i
     if(all(j)){
       older<-pedData[j, ]
       orderped<-rbind(parents, older)
       orderped<-unique(orderped)
-      print(orderped)
     }else{
       young<-pedData[i, ]
-
-
       orderped<-young
 
       #Setting the older individuals
