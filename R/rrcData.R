@@ -144,5 +144,5 @@ rrcData<-function(datObj = NULL, colsPdg = NULL, colsTrts = NULL, colsDts = NULL
       warning("Variances of the traits are too small ou too big. You should scale the data.")
     }
   }
-  dados
+  invisible(dados)
 }
