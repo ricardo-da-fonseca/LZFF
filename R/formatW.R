@@ -8,6 +8,7 @@
 #' @param omd missing data value to be written in the output file
 #' @param traits vector indicating traits columns
 #' @param rep a list where each element is a vector containing the columns of the repeated measurements for each trait
+#' @param peColumn subject to permanent environment column. The column will be replicated in data object
 #' @param widths vector specifying the widths of columns in the formatted file
 #' @param EoL end of line indicator. Unix and Linux uses "\\n", while Windows uses "\\r\\n".
 #'
@@ -45,7 +46,7 @@
 #' unlink("formatW_data")
 #'
 formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
-                  rep = NULL, widths = NULL, EoL = "\n"){
+                  rep = NULL, peColumn = 1, widths = NULL, EoL = "\n"){
 
   udata<-dataList$data
 
@@ -61,13 +62,19 @@ formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
     d1<-rbind(d1,udata[, -traits])
     i <- i + 1
   }
+
+  if(!is.null(rep)){
+    d1$peSub<-d1[,peColumn]
+  }
+
   #Traits columns
   if(!is.null(rep)){
     rept<-unlist(rep)
     k<-!(traits %in% rept)
     nrep<-traits[k]
-    traits<-c(rep[[1]], rep[[2]], nrep)
+    traits<-c(rept, nrep)
   }
+
   d2<-unlist(lapply(udata[, traits], c))
 
   #Adding trait number column
