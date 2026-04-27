@@ -21,6 +21,7 @@ fw(
   missingData = c("", " ", "NA"),
   dof = "formatW_data",
   rept = NULL,
+  peCol = 1,
   omdat = "-99999",
   width = NULL,
   endOfLine = "\\n",
@@ -63,6 +64,8 @@ fw(
 \item{dof}{data output file's name}
 
 \item{rept}{a list where each element is a vector containing the columns of the repeated measurements for each trait}
+
+\item{peCol}{subject to permanent environment column. The column will be replicated in data object}
 
 \item{omdat}{missing data value to be written in the output file}
 
