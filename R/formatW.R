@@ -96,9 +96,9 @@ formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
   fdata<-udata[order(udata[, 2], udata[, 1], na.last = FALSE), ]
 
   #Ensuring that output file's name is no longer than 30 characters
-  length_of<-nchar(of)
-  if(length_of > 30){
-    of<-stringr::str_sub(of,-30)
+  filename <- basename(of)
+  if(nchar(filename) > 30){
+    of <- file.path(dirname(of), stringr::str_sub(filename, -30))
   }
 
   fnames<-paste0("x",1:length(fdata))
