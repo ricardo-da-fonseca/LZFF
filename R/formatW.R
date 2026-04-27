@@ -64,7 +64,7 @@ formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
   }
 
   if(!is.null(rep)){
-    d1$peSub<-d1[,peColumn]
+    d1$peSub<-d1[, peColumn]
   }
 
   #Traits columns
