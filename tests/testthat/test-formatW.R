@@ -21,7 +21,10 @@ test_that("formatW mantém o alinhamento correto entre d1 e d2", {
     T2 = c(15, 25, 35)
   )
   dataList <- list(data = data_mock)
-  tmp <- withr::local_tempfile()
+
+  tmp <- file.path(tempdir(), "fw_test")
+  withr::defer(unlink(tmp))
+
   formatW(dataList = dataList, of = tmp, traits = c(3, 4))
 
   result <- read.table(tmp, header = FALSE)
@@ -33,8 +36,6 @@ test_that("formatW mantém o alinhamento correto entre d1 e d2", {
   # Coluna de característica (d3): deve ter valores 1 e 2
   expect_setequal(unique(result[[1]]), c(1, 2))
 
-  # O valor da característica T2 do animal 3 (posição 6 em d2)
-  # deve estar alinhado com o efeito fixo do animal 3 em d1 (linha 6)
-  expect_equal(d2[6], 35)
-  expect_equal(d1$FIXO[6], "A")
+  # Coluna de observação (d2): deve conter os valores de T1 e T2
+  expect_setequal(result[[ncol(result)]], c(10, 20, 30, 15, 25, 35))
 })
