@@ -88,6 +88,7 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
   #reorganizing columns
   pedData<-data.frame(pedData[,isd])
   names(pedData)<-c("ind", "sire", "dam")
+  pedData[]<-lapply(pedData,as.character)
 
   #checking if there are duplicate data
   pedData<-unique(pedData)
@@ -175,6 +176,7 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
 
   #Recoding
   mapaCod<-data.frame(cod = orderped$ind, recod = 1: nrow(orderped))
+  mapaCod[]<-lapply(mapaCod, as.character)
 
   pedData<-orderped
   rm(orderped)
