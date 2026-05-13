@@ -65,7 +65,7 @@ fw<-function(dObj = NULL, pObj = NULL, cTraits = NULL, cPedDat.isd = NULL,
                           md = missingData)
 
   formatW(dataList = listDataPed, of = dof, omd = omdat, traits = cTraits,
-          rep = rept, peColumn = peCol, widths = width, EoL = endOfLine)
+          r = rept, peColumn = peCol, widths = width, EoL = endOfLine)
 
   formatPed(dataList = listDataPed, of = pof, mp = mparents, s = sep, EoL = endOfLine,
             map = printMap, mapof = mof)

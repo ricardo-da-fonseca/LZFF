@@ -9,7 +9,7 @@ formatW(
   of = "formatW_data",
   omd = "-99999",
   traits = NULL,
-  rep = NULL,
+  r = NULL,
   peColumn = 1,
   widths = NULL,
   EoL = "\\n"
@@ -24,7 +24,7 @@ formatW(
 
 \item{traits}{vector indicating traits columns}
 
-\item{rep}{a list where each element is a vector containing the columns of the repeated measurements for each trait}
+\item{r}{a list where each element is a vector containing the columns of the repeated measurements for each trait}
 
 \item{peColumn}{subject to permanent environment column. The column will be replicated in data object}
 

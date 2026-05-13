@@ -7,7 +7,7 @@
 #' @param of output file name
 #' @param omd missing data value to be written in the output file
 #' @param traits vector indicating traits columns
-#' @param rep a list where each element is a vector containing the columns of the repeated measurements for each trait
+#' @param r a list where each element is a vector containing the columns of the repeated measurements for each trait
 #' @param peColumn subject to permanent environment column. The column will be replicated in data object
 #' @param widths vector specifying the widths of columns in the formatted file
 #' @param EoL end of line indicator. Unix and Linux uses "\\n", while Windows uses "\\r\\n".
@@ -46,7 +46,7 @@
 #' unlink("formatW_data")
 #'
 formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
-                  rep = NULL, peColumn = 1, widths = NULL, EoL = "\n"){
+                  r = NULL, peColumn = 1, widths = NULL, EoL = "\n"){
 
   udata<-dataList$data
 
@@ -63,13 +63,13 @@ formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
     i <- i + 1
   }
 
-  if(!is.null(rep)){
+  if(!is.null(r)){
     d1$peSub<-d1[, peColumn]
   }
 
   #Traits columns
-  if(!is.null(rep)){
-    rept<-unlist(rep)
+  if(!is.null(r)){
+    rept<-unlist(r)
     k<-!(traits %in% rept)
     nrep<-traits[k]
     traits<-c(rept, nrep)
@@ -79,12 +79,12 @@ formatW<-function(dataList, of = "formatW_data", omd = "-99999", traits = NULL,
 
   #Adding trait number column
   d3<-NULL
-  if(!is.null(rep)){
-    for(i in 1:length(rep)){
-      d3temp<-rep(i, times = nrow(udata) * length(rep[[i]]))
+  if(!is.null(r)){
+    for(i in 1:length(r)){
+      d3temp<-rep(i, times = nrow(udata) * length(r[[i]]))
       d3<-c(d3, d3temp)
     }
-    cont<-(length(rep) + 1)
+    cont<-(length(r) + 1)
     d3<-c(d3, rep(cont:(cont + length(nrep) - 1), each = nrow(udata)))
   } else{
     d3<-rep(1:length(traits), each = length(d2)/length(traits))
