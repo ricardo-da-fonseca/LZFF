@@ -88,6 +88,7 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
   #reorganizing columns
   pedData<-data.frame(pedData[,isd])
   names(pedData)<-c("ind", "sire", "dam")
+  pedData[]<-lapply(pedData,as.character)
 
   #checking if there are duplicate data
   pedData<-unique(pedData)
@@ -171,6 +172,7 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
 
   #Recoding
   mapaCod<-data.frame(cod = orderped$ind, recod = 1: nrow(orderped))
+  mapaCod[]<-lapply(mapaCod, as.character)
 
   pedData<-orderped
   rm(orderped)
@@ -182,11 +184,12 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
   }
 
   #Checking if the animal recode is smaller than his parents
+  pedData[]<-lapply(pedData, as.numeric)
   for(i in 1:nrow(pedData)){
     t<-pedData$ind[i] <= pedData$sire[i] || pedData$ind[i] <= pedData$dam[i]
     if(!is.na(t)){
       if(t){
-        smaller<-pedData[i]
+        smaller<-pedData[i,]
         print("Parent have code smaller than progeny")
         print(smaller)
       }
@@ -194,9 +197,10 @@ rrcPed<-function(pedigreeObj = NULL, isd = c(1, 2, 3), udata, colsPdgDat.isd = c
   }
 
   #Replacing the original codes in data object
+  pedData[]<-lapply(pedData, as.character)
   for(j in colsPdgDat.isd){
-    i<-match(udata[[j]], mapaCod[,1])
-    udata[[j]]<-mapaCod[,2][i]
+    i<-match(udata[,j], mapaCod[,1])
+    udata[,j]<-mapaCod[,2][i]
   }
 
   #Replacing absent parents in the data object
