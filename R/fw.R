@@ -19,6 +19,7 @@
 #' @param missingData missing data indicator
 #' @param dof data output file's name
 #' @param rept a list where each element is a vector containing the columns of the repeated measurements for each trait
+#' @param peCol subject to permanent environment column. The column will be replicated in data object
 #' @param omdat missing data value to be written in the output file
 #' @param width vector specifying the widths of columns in the formatted file
 #' @param endOfLine end of line indicator. Unix and Linux uses "\\n", while Windows uses "\\r\\n"
@@ -53,7 +54,7 @@ fw<-function(dObj = NULL, pObj = NULL, cTraits = NULL, cPedDat.isd = NULL,
              cDates = NULL, pdg.isd = c(1, 2, 3), dataFile = NULL,
              pedFile = NULL, sDat = " ", dDat = ".", hDat = FALSE,
              sPdg = " ", hPdg = FALSE, missingData = c(""," ","NA"),
-             dof = "formatW_data", rept = NULL, omdat = "-99999",
+             dof = "formatW_data", rept = NULL, peCol = 1, omdat = "-99999",
              width = NULL, endOfLine = "\n", pof = "pedigree.txt",
              mparents = 0, sep = " ", printMap = FALSE, mof = "map.txt"){
 
@@ -64,7 +65,7 @@ fw<-function(dObj = NULL, pObj = NULL, cTraits = NULL, cPedDat.isd = NULL,
                           md = missingData)
 
   formatW(dataList = listDataPed, of = dof, omd = omdat, traits = cTraits,
-          rep = rept, widths = width, EoL = endOfLine)
+          r = rept, peColumn = peCol, widths = width, EoL = endOfLine)
 
   formatPed(dataList = listDataPed, of = pof, mp = mparents, s = sep, EoL = endOfLine,
             map = printMap, mapof = mof)
